@@ -75,8 +75,8 @@ module.exports = {
   },
 
   async deletePoll(req, res) {
-    await Poll.findByIdAndRemove(req.params.pollId, (err) => {
-      if (err) {
+    await Poll.findByIdAndRemove(req.params.pollId, (error) => {
+      if (error) {
         return res.status(500).send('Cannot delete poll')
       }
       return res.status(200).send('OK')

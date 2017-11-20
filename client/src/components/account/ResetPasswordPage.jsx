@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap'
+import { Alert, Row, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap'
 
 export default class ResetPasswordPage extends React.Component {
   constructor(props) {
@@ -45,10 +45,10 @@ export default class ResetPasswordPage extends React.Component {
       return (
         <Row className="justify-content-center">
           <Col xs="12" sm="10" md="8" xl="5">
-            <p>
+            <Alert color="info" className="mt-3">
               An email has been sent to the address you provided containing a link to reset
               your password. Please click that link to proceed with setting a new password.
-            </p>
+            </Alert>
             <p>
               <a href="/account/reset-password" onClick={this.clearPasswordReset}>Re-send Email</a>
             </p>
@@ -59,10 +59,10 @@ export default class ResetPasswordPage extends React.Component {
     return (
       <Row className="justify-content-center">
         <Col xs="12" sm="10" md="8" xl="5">
-          <p>
+          <Alert color="info" className="mt-3">
             If you&lsquo;d like to reset your password, please enter your email here
             and a link to do so will be sent to the address you enter.
-          </p>
+          </Alert>
           <Form>
             <FormGroup>
               <Label for="username">Email</Label>

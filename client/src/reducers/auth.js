@@ -2,7 +2,7 @@ const initialState = {
   id: '',
   isLoggedIn: false,
   isLoggingIn: false,
-  registrationSucceeded: false,
+  thanksRegistration: false,
   isPasswordReset: false,
   isPasswordChanged: false,
   username: ''
@@ -55,14 +55,9 @@ const auth = (state = initialState, action) => {
       newState.isPasswordChanged = true
       return newState
     }
-    case 'AUTH_REGISTRATION_SUCCESS': {
+    case 'THANKS_REGISTRATION': {
       const newState = Object.assign({}, state)
-      newState.registrationSucceeded = true
-      return newState
-    }
-    case 'AUTH_REGISTRATION_SUCCESS_VIEWED': {
-      const newState = Object.assign({}, state)
-      newState.registrationSucceeded = false
+      newState.thanksRegistration = true
       return newState
     }
     default:

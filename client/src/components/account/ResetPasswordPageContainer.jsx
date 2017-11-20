@@ -12,7 +12,7 @@ const ResetPasswordPageContainer = ({
   return (
     <ResetPasswordPage
       createHash={createHash}
-      isPasswordRest={isPasswordReset}
+      isPasswordReset={isPasswordReset}
       passwordResetClear={passwordResetClear}
     />
   )

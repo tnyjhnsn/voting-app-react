@@ -36,7 +36,7 @@ module.exports = {
       }
       const transporter = nodemailer.createTransport(smtpConfig)
       const mailOptions = {
-        from: 'info@pollster.io',
+        from: 'info@pollster',
         to: foundUser.username,
         subject: 'Reset your password at Pollster',
         text: `A password reset has been requested for the Pollster account connected to this email address. If you made this request, please click the following link: http://www.tosp.net.au:3005/account/change-password/${foundUser.passwordReset} ... if you didn't make this request, feel free to ignore it!`,
