@@ -14,8 +14,7 @@ export const passwordSaveClear = () => ({ type: 'AUTH_PASSWORD_SAVE_FAILURE' })
 export const passwordSaveFailure = error => ({ type: 'AUTH_PASSWORD_SAVE_FAILURE', error })
 export const passwordSaveSuccess = () => ({ type: 'AUTH_PASSWORD_SAVE_SUCCESS' })
 export const registrationFailure = error => ({ type: 'AUTH_REGISTRATION_FAILURE', error })
-export const registrationSuccess = () => ({ type: 'AUTH_REGISTRATION_SUCCESS' })
-export const registrationSuccessViewed = () => ({ type: 'AUTH_REGISTRATION_SUCCESS_VIEWED' })
+export const thanksRegistration = bool => ({ type: 'THANKS_REGISTRATION', bool })
 export const sessionCheckFailure = () => ({ type: 'AUTH_SESSION_CHECK_FAILURE' })
 export const sessionCheckSuccess = json => ({ type: 'AUTH_SESSION_CHECK_SUCCESS', json })
 
@@ -108,7 +107,7 @@ export const registerUser = userData => {
         const user = response.data
         sessionStorage.setItem('pollster_id', user._id)
         sessionStorage.setItem('pollster_username', user.username)
-        dispatch(registrationSuccess())
+        dispatch(thanksRegistration(true))
         dispatch(loginSuccess(user))
       })
       .catch((error) => {

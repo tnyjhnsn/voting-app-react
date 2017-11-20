@@ -5,8 +5,8 @@ import { registerUser } from '../../actions/auth'
 
 import CredentialsPage from './CredentialsPage'
 
-const RegisterPageContainer = ({ registerUser, auth: { isLoggedIn, registrationSucceeded } }) => {
-  if (registrationSucceeded) {
+const RegisterPageContainer = ({ registerUser, auth: { isLoggedIn, thanksRegistration } }) => {
+  if (thanksRegistration) {
     return (<Redirect to="/account/register-success" />)
   }
   if (isLoggedIn) {

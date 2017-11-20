@@ -13,7 +13,7 @@ import LandingPage from './home/LandingPageContainer'
 import LoginPage from './account/LoginPageContainer'
 import ListPollsPage from './polls/ListPollsPageContainer'
 import RegisterPage from './account/RegisterPageContainer'
-import RegisterSuccessPage from './account/RegisterSuccessPageContainer'
+import ThanksRegistration from './account/ThanksRegistrationContainer'
 import ResetPasswordPage from './account/ResetPasswordPageContainer'
 import ThanksVote from './polls/ThanksVoteContainer'
 
@@ -28,7 +28,7 @@ const Template = ({ progress, auth }) => {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/account/login" component={LoginPage} />
           <Route exact path="/account/register" component={RegisterPage} />
-          <Route exact path="/account/register-success" component={RegisterSuccessPage} />
+          <Route exact path="/account/register-success" component={ThanksRegistration} />
           <Route exact path="/account/reset-password" component={ResetPasswordPage} />
           <Route exact path="/polls" component={ListPollsPage} />
           <Route exact path="/poll/create" component={CreatePollPage} />
