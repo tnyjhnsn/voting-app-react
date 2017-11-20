@@ -38,7 +38,7 @@ const polls = (state = initialState, action) => {
     case 'POLL_DELETE_SUCCESS': {
       const newState = Object.assign({}, state)
       newState.polls = state.polls.filter(poll => {
-        return poll._id !== action.id
+        return poll._id !== action.pollId
       })
       return newState
     }
