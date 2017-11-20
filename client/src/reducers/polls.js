@@ -11,46 +11,44 @@ const initialState = {
 const polls = (state = initialState, action) => {
   switch (action.type) {
     case 'POLLS_GET_SUCCESS': {
-      const newState = Object.assign({}, state)
-      newState.polls = action.json.polls
-      return newState
+      return Object.assign({}, state, {
+        polls: action.json.polls
+      })
     }
     case 'POLL_GET_SUCCESS': {
-      const newState = Object.assign({}, state)
-      newState.poll = action.json.poll
-      return newState
+      return Object.assign({}, state, {
+        poll: action.json.poll
+      })
     }
     case 'THANKS_VOTE': {
-      const newState = Object.assign({}, state)
-      newState.thanksVote = action.bool
-      return newState
+      return Object.assign({}, state, {
+        thanksVote: action.bool
+      })
     }
     case 'THANKS_POLL_CREATED': {
-      const newState = Object.assign({}, state)
-      newState.thanksPollCreated = action.bool
-      return newState
+      return Object.assign({}, state, {
+        thanksPollCreated: action.bool
+      })
     }
     case 'THANKS_POLL_UPDATED': {
-      const newState = Object.assign({}, state)
-      newState.thanksPollUpdated = action.bool
-      return newState
+      return Object.assign({}, state, {
+        thanksPollUpdated: action.bool
+      })
     }
     case 'POLL_DELETE_SUCCESS': {
-      const newState = Object.assign({}, state)
-      newState.polls = state.polls.filter(poll => {
-        return poll._id !== action.pollId
+      return Object.assign({}, state, {
+        polls: state.polls.filter(poll => poll._id !== action.pollId)
       })
-      return newState
     }
     case 'POLL_VIEW': {
-      const newState = Object.assign({}, state)
-      newState.viewPoll = action.bool
-      return newState
+      return Object.assign({}, state, {
+        viewPoll: action.bool
+      })
     }
     case 'POLLS_VIEWING_MY': {
-      const newState = Object.assign({}, state)
-      newState.viewingMyPolls = action.bool
-      return newState
+      return Object.assign({}, state, {
+        viewingMyPolls: action.bool
+      })
     }
     default:
       return state

@@ -13,14 +13,13 @@ const error = (state = initialState, action) => {
     case 'POLLS_GET_FAILURE':
     case 'POLL_GET_FAILURE':
     case 'POLL_DELETE_FAILURE': {
-      const newState = Object.assign({}, initialState)
-      newState.isError = true
-      newState.error = action.error
-      return newState
+      return Object.assign({}, initialState, {
+        isError: true,
+        error: action.error
+      })
     }
     case 'ERROR_CLEARED': {
-      const newState = Object.assign({}, initialState)
-      return newState
+      return Object.assign({}, initialState)
     }
     default:
       return state
