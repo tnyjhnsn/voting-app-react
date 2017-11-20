@@ -1,0 +1,30 @@
+{
+  "name": "voting-app-server",
+  "version": "1.0.0",
+  "description": "Voting App Server",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js --exec 'yarn run lint && node'",
+    "lint": "eslint **/*.js"
+  },
+  "author": "Tony Johnson <tony@tosp.net.au>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.10.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "joi": "^13.0.1",
+    "mongoose": "^4.13.0",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.3.1",
+    "passport": "^0.4.0",
+    "passport-local-mongoose": "^4.4.0"
+  }
+}
