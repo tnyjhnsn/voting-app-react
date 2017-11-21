@@ -11,7 +11,7 @@ module.exports = {
     })
   },
 
-  async getAll(req, res) {
+  async getPolls(req, res) {
     await Poll.find({}, (error, polls) => {
       if (error) {
         return res.status(500).send('Cannot retrieve all polls')
@@ -22,27 +22,29 @@ module.exports = {
     })
   },
 
-  async getMine(req, res) {
-    await Poll.find({ owner: req.params.userId }, (error, polls) => {
-      if (error) {
-        return res.status(500).send('Cannot retrieve user polls')
-      }
-      return res.status(200).send({
-        polls
-      })
-    })
-  },
-
-  async getPoll(req, res) {
-    await Poll.findById(req.params.pollId, (error, poll) => {
-      if (error) {
-        return res.status(500).send('Cannot retrieve poll')
-      }
-      return res.status(200).send({
-        poll
-      })
-    })
-  },
+  // NOT USED
+  //
+  // async getMine(req, res) {
+  //   await Poll.find({ owner: req.params.userId }, (error, polls) => {
+  //     if (error) {
+  //       return res.status(500).send('Cannot retrieve user polls')
+  //     }
+  //     return res.status(200).send({
+  //       polls
+  //     })
+  //   })
+  // },
+  //
+  // async getPoll(req, res) {
+  //   await Poll.findById(req.params.pollId, (error, poll) => {
+  //     if (error) {
+  //       return res.status(500).send('Cannot retrieve poll')
+  //     }
+  //     return res.status(200).send({
+  //       poll
+  //     })
+  //   })
+  // },
 
   async incrementVote(req, res) {
     await Poll.findOneAndUpdate(

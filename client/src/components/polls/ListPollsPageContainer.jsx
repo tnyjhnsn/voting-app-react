@@ -1,23 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { getAllPolls, getMyPolls, getPoll, deletePoll } from '../../actions/polls'
+import { getPolls, listMyPolls, viewPoll, deletePoll } from '../../actions/polls'
 
 import ListPollsPage from './ListPollsPage'
 
 class ListPollsPageContainer extends React.Component {
   constructor(props) {
     super(props)
+    this.getPollsList = this.getPollsList.bind(this)
     this.createPoll = this.createPoll.bind(this)
+    this.viewPoll = this.viewPoll.bind(this)
     this.state = {
-      createPoll: false
+      createPoll: false,
+      viewPoll: false
     }
   }
+
   componentWillMount() {
-    if (this.props.polls.viewingMyPolls) {
-      return this.props.getMyPolls(this.props.auth.id)
+    this.props.getPolls()
+  }
+
+  getPollsList() {
+    if (this.props.polls.listMyPolls) {
+      return this.props.polls.polls.filter(poll => poll.owner === this.props.auth.id)
     }
-    this.props.getAllPolls()
+    return this.props.polls.polls
   }
 
   createPoll() {
@@ -26,9 +34,16 @@ class ListPollsPageContainer extends React.Component {
     })
   }
 
+  viewPoll(pollId) {
+    this.setState({
+      viewPoll: true
+    })
+    this.props.viewPoll(pollId)
+  }
+
   render() {
-    const { polls, getAllPolls, getMyPolls, getPoll, deletePoll, auth } = this.props
-    if (polls.viewPoll) {
+    const { getPolls, listMyPolls, deletePoll, auth } = this.props
+    if (this.state.viewPoll) {
       return (<Redirect to="/poll/view" />)
     }
     if (this.state.createPoll) {
@@ -38,11 +53,11 @@ class ListPollsPageContainer extends React.Component {
       <ListPollsPage
         auth={auth}
         createPoll={this.createPoll}
+        viewPoll={this.viewPoll}
         deletePoll={deletePoll}
-        getAllPolls={getAllPolls}
-        getMyPolls={getMyPolls}
-        getPoll={getPoll}
-        polls={polls.polls}
+        getPolls={getPolls}
+        listMyPolls={listMyPolls}
+        polls={this.getPollsList()}
       />
     )
   }
@@ -54,9 +69,9 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getAllPolls: () => dispatch(getAllPolls()),
-  getMyPolls: id => dispatch(getMyPolls(id)),
-  getPoll: id => dispatch(getPoll(id)),
+  getPolls: () => dispatch(getPolls()),
+  listMyPolls: bool => dispatch(listMyPolls(bool)),
+  viewPoll: id => dispatch(viewPoll(id)),
   deletePoll: id => dispatch(deletePoll(id))
 })
 

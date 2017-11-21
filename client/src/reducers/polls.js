@@ -1,11 +1,10 @@
 const initialState = {
-  viewingMyPolls: false,
-  viewPoll: false,
+  listMyPolls: false,
   thanksVote: false,
   thanksPollCreated: false,
   thanksPollUpdated: false,
   polls: [],
-  poll: []
+  selectedPollId: ''
 }
 
 const polls = (state = initialState, action) => {
@@ -13,11 +12,6 @@ const polls = (state = initialState, action) => {
     case 'POLLS_GET_SUCCESS': {
       return Object.assign({}, state, {
         polls: action.json.polls
-      })
-    }
-    case 'POLL_GET_SUCCESS': {
-      return Object.assign({}, state, {
-        poll: action.json.poll
       })
     }
     case 'THANKS_VOTE': {
@@ -40,14 +34,14 @@ const polls = (state = initialState, action) => {
         polls: state.polls.filter(poll => poll._id !== action.pollId)
       })
     }
-    case 'POLL_VIEW': {
+    case 'POLLS_LIST_MINE': {
       return Object.assign({}, state, {
-        viewPoll: action.bool
+        listMyPolls: action.bool
       })
     }
-    case 'POLLS_VIEWING_MY': {
+    case 'POLL_VIEW': {
       return Object.assign({}, state, {
-        viewingMyPolls: action.bool
+        selectedPollId: action.pollId
       })
     }
     default:

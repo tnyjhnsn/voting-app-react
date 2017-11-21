@@ -4,28 +4,29 @@ import { Alert, Button, Row, Col, ListGroup, ListGroupItem, ListGroupItemHeading
 export default class ListPollsPage extends React.Component {
   constructor(props) {
     super(props)
-    this.getAllPolls = this.getAllPolls.bind(this)
-    this.getMyPolls = this.getMyPolls.bind(this)
+    this.getPolls = this.getPolls.bind(this)
+    this.listMyPolls = this.listMyPolls.bind(this)
     this.createPoll = this.createPoll.bind(this)
-    this.getPoll = this.getPoll.bind(this)
+    this.viewPoll = this.viewPoll.bind(this)
     this.deletePoll = this.deletePoll.bind(this)
     this.showDelete = this.showDelete.bind(this)
   }
 
-  getAllPolls() {
-    this.props.getAllPolls()
+  getPolls() {
+    this.props.listMyPolls(false)
+    this.props.getPolls()
   }
 
-  getMyPolls() {
-    this.props.getMyPolls(this.props.auth.id)
+  listMyPolls() {
+    this.props.listMyPolls(true)
   }
 
   createPoll() {
     this.props.createPoll()
   }
 
-  getPoll = id => () => {
-    this.props.getPoll(id)
+  viewPoll = id => () => {
+    this.props.viewPoll(id)
   }
 
   deletePoll = pollId => (e) => {
@@ -41,7 +42,7 @@ export default class ListPollsPage extends React.Component {
     const style = { cursor: 'pointer' }
     return polls.map((poll, i) =>
       (
-        <ListGroupItem key={i} style={style} onClick={this.getPoll(poll._id)}>
+        <ListGroupItem key={i} style={style} onClick={this.viewPoll(poll._id)}>
           <ListGroupItemHeading className="mb-0">{poll.question}</ListGroupItemHeading>
           <ListGroupItemText className="mb-0">
             <span className="small text-muted">Votes: {poll.totalVotes}
@@ -58,9 +59,9 @@ export default class ListPollsPage extends React.Component {
     return (
       <div>
         <Button className="btn-sm pull-right ml-1"
-          onClick={this.getAllPolls}>All Polls</Button>
+          onClick={this.getPolls}>All Polls</Button>
         <Button className="btn-sm pull-right"
-          onClick={this.getMyPolls}>My Polls</Button>
+          onClick={this.listMyPolls}>My Polls</Button>
         <Button className="btn-sm"
           onClick={this.createPoll}>New</Button>
       </div>

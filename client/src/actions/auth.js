@@ -1,5 +1,6 @@
 import api from './api'
 import { startProgress, stopProgress } from './progress'
+import { listMyPolls } from './polls'
 import { clearError } from './error'
 
 export const loginAttempt = () => ({ type: 'AUTH_LOGIN_ATTEMPT' })
@@ -86,6 +87,7 @@ export const logUserIn = userData => {
 export const logUserOut = () => {
   return async (dispatch) => {
     dispatch(startProgress())
+    dispatch(listMyPolls(false))
     await api().get('/logout')
       .then((response) => {
         sessionStorage.removeItem('pollster_id')

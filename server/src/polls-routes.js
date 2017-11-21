@@ -3,18 +3,20 @@ const PollsController = require('./controllers/polls-controller')
 module.exports = (app) => {
   app.get(
     '/polls',
-    PollsController.getAll
+    PollsController.getPolls
   )
 
-  app.get(
-    '/polls/:userId',
-    PollsController.getMine
-  )
-
-  app.get(
-    '/poll/:pollId',
-    PollsController.getPoll
-  )
+  // NOT USED
+  //
+  // app.get(
+  //   '/polls/:userId',
+  //   PollsController.getMine
+  // )
+  //
+  // app.get(
+  //   '/poll/:pollId',
+  //   PollsController.getPoll
+  // )
 
   app.post(
     '/poll',
