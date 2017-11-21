@@ -11,11 +11,14 @@ const EditPollPageContainer = ({ auth, polls, savePoll }) => {
       <Redirect to="/poll/update-success"/>
     )
   }
+  const poll = polls.polls.filter(poll => {
+    return poll._id === polls.selectedPollId
+  })[0]
   return (
     <SavePollPage
       auth={auth}
       savePoll={savePoll}
-      poll={polls.poll}
+      poll={poll}
     />
   )
 }

@@ -1,39 +1,40 @@
       23 ./src/index.js
-      21 ./src/components/home/LandingPageContainer.jsx
-      26 ./src/components/home/LandingPage.jsx
-      45 ./src/components/Template.jsx
-      24 ./src/components/polls/EditPollPageContainer.jsx
-      35 ./src/components/polls/ListPollsPageContainer.jsx
-      23 ./src/components/polls/CreatePollPageContainer.jsx
-      39 ./src/components/polls/ListPollsPage.jsx
-      26 ./src/components/polls/ViewPollPageContainer.jsx
-     159 ./src/components/polls/SavePollPage.jsx
-      70 ./src/components/polls/ViewPollPage.jsx
+      28 ./src/components/home/LandingPage.jsx
+      51 ./src/components/Template.jsx
+      29 ./src/components/polls/EditPollPageContainer.jsx
+      20 ./src/components/polls/ThanksVoteContainer.jsx
+      79 ./src/components/polls/ListPollsPageContainer.jsx
+      28 ./src/components/polls/CreatePollPageContainer.jsx
+      20 ./src/components/polls/ThanksPollUpdatedContainer.jsx
+      89 ./src/components/polls/ListPollsPage.jsx
+      40 ./src/components/polls/ViewPollPageContainer.jsx
+      20 ./src/components/polls/ThanksPollCreatedContainer.jsx
+     156 ./src/components/polls/SavePollPage.jsx
+      74 ./src/components/polls/ViewPollPage.jsx
       54 ./src/components/polls/Chart.jsx
       68 ./src/components/shared/Header.jsx
+      18 ./src/components/shared/Thanks.jsx
       16 ./src/components/shared/Sidebar.jsx
       16 ./src/components/shared/HeaderContainer.jsx
       19 ./src/components/shared/ErrorBoxContainer.jsx
-      14 ./src/components/shared/ErrorBox.jsx
+      16 ./src/components/shared/ErrorBox.jsx
       29 ./src/components/TemplateContainer.jsx
       37 ./src/components/account/ChangePasswordPageContainer.jsx
+      20 ./src/components/account/ThanksRegistrationContainer.jsx
       77 ./src/components/account/CredentialsPage.jsx
       29 ./src/components/account/LoginPageContainer.jsx
-      13 ./src/components/account/RegisterSuccessPage.jsx
       29 ./src/components/account/RegisterPageContainer.jsx
       85 ./src/components/account/ResetPasswordPage.jsx
       98 ./src/components/account/ChangePasswordPage.jsx
-      17 ./src/components/account/RegisterSuccessPageContainer.jsx
       28 ./src/components/account/ResetPasswordPageContainer.jsx
-      16 ./src/components/account/ProfilePage.jsx
-     155 ./src/actions/auth.js
+     156 ./src/actions/auth.js
        1 ./src/actions/error.js
-     109 ./src/actions/polls.js
+     110 ./src/actions/polls.js
        2 ./src/actions/progress.js
-       7 ./src/actions/api.js
-      71 ./src/reducers/auth.js
+      10 ./src/actions/api.js
+      68 ./src/reducers/auth.js
       14 ./src/reducers/index.js
-      27 ./src/reducers/error.js
-      28 ./src/reducers/polls.js
-       9 ./src/reducers/progress.js
+      28 ./src/reducers/error.js
+      52 ./src/reducers/polls.js
+      11 ./src/reducers/progress.js
       19 ./src/store/index.js
