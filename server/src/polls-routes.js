@@ -2,7 +2,7 @@ const PollsController = require('./controllers/polls-controller')
 
 module.exports = (app) => {
   app.get(
-    '/polls',
+    '/api/polls',
     PollsController.getPolls
   )
 
@@ -19,22 +19,22 @@ module.exports = (app) => {
   // )
 
   app.post(
-    '/poll',
+    '/api/poll',
     PollsController.createPoll
   )
 
   app.delete(
-    '/poll/:pollId',
+    '/api/poll/:pollId',
     PollsController.deletePoll
   )
 
   app.put(
-    '/poll',
+    '/api/poll',
     PollsController.updatePoll
   )
 
   app.put(
-    '/poll/:answerId',
+    '/api/poll/:answerId',
     PollsController.incrementVote
   )
 }

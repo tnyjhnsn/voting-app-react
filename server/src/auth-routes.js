@@ -3,28 +3,28 @@ const AuthController = require('./controllers/auth-controller')
 
 module.exports = (app) => {
   app.get(
-    '/logout',
+    '/api/logout',
     AuthController.logout
   )
 
   app.post(
-    '/createhash',
+    '/api/createhash',
     AuthController.createHash
   )
 
   app.post(
-    '/login',
+    '/api/login',
     AuthController.login
   )
 
   app.post(
-    '/register',
+    '/api/register',
     AuthPolicy.register,
     AuthController.register
   )
 
   app.post(
-    '/savepassword',
+    '/api/savepassword',
     AuthController.savePassword
   )
 }
