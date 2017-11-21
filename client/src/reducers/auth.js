@@ -46,7 +46,7 @@ const auth = (state = initialState, action) => {
       })
     }
     case 'AUTH_PASSWORD_SAVE_CLEAR': {
-      Object.assign({}, state, {
+      return Object.assign({}, state, {
         isPasswordChanged: false
       })
     }
