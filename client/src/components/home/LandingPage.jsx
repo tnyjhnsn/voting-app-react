@@ -3,7 +3,7 @@ import { Row, Col, Button, Card, CardBody, CardImg, CardText } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import pic from '../../images/VoteNow.jpg'
 
-const LandingPage = ({ startProgress, stopProgress }) => {
+const LandingPage = () => {
   return (
     <Row className="justify-content-center">
       <Col xs="12" md="8">
